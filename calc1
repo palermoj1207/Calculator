@@ -1,0 +1,50 @@
+
+def add(n1, n2):
+    return n1 + n2
+
+def subtract(n1, n2):
+    return n1 - n2
+
+def multiply(n1, n2):
+    return n1 * n2
+
+def divide(n1, n2):
+    return n1 / n2
+
+calculator = {
+    "+": add,
+    "-": subtract, 
+    "*": multiply,
+    "/": divide
+}
+
+go_on = ""
+
+new_calc = 1
+
+while new_calc:
+    n1 = float(input("What's the first number?: "))
+    for op in calculator:
+        print(op)
+    operator = input("Pick an operator: \n")
+    n2 = float(input("What's the next number?: "))
+    result = calculator[f"{operator}"](n1, n2)
+    print(f"{n1} {operator} {n2} = {result}")
+    go_on = input("Would you like to continue calculating? Type 'y' or 'n': \n")
+    while go_on == 'y':
+        n1 = result
+        for op in calculator:
+            print(op)
+        operator = input("Pick an operator: \n")
+        n2 = float(input("What's the next number?: "))
+        result = calculator[f"{operator}"](result, n2)
+        print(f"{n1} {operator} {n2} = {result}")
+        go_on = input("Would you like to continue calculating? Type 'y' or 'n': \n")
+
+
+
+
+
+
+
+
